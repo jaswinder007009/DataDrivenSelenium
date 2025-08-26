@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -30,6 +31,7 @@ public class TestBase {
 	public static Properties OR = new Properties();
 	public static FileInputStream configFis;
 	public static FileInputStream configOR;
+	public static Logger log = Logger.getLogger("devpinoyLogger");
 
 	@BeforeMethod
 	@BeforeSuite
@@ -37,11 +39,10 @@ public class TestBase {
 		if (driver == null) {
 			String basePath = System.getProperty("user.dir") + "//src//test//resources//com//EX2//properties//";
 			FileInputStream fisConfig = new FileInputStream(basePath + "Config.properties");
-System.out.println("Test1");
-
-			
+		System.out.println(System.getProperty("user.dir"));
 			try {
 				config.load(fisConfig);
+				log.debug("Config file loaded !!!!");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -49,6 +50,8 @@ System.out.println("Test1");
 			FileInputStream fisOR = new FileInputStream(basePath + "OR.properties");
 			try {
 				OR.load(fisOR);
+				log.debug("OR file loaded !!!!");
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -60,17 +63,23 @@ System.out.println("Test1");
 
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
+				log.debug("Chrome launched !!!!");
 			} else if (config.getProperty("browser").equals("firefox")) {
 				System.setProperty("webdriver.firefox.bin", "/Applications/Firefox.app/Contents/MacOS/firefox");
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
+				log.debug("Firefox launched !!!!");
+
 			} else if (config.getProperty("browser").equals("ie")) {
 
 				WebDriverManager.iedriver().setup();
 				driver = new InternetExplorerDriver();
+				log.debug("Internet Explorer launched !!!!");
+
 
 			}
 			driver.get(config.getProperty("testsiteuRL"));
+			log.debug("Navigated to :" + config.getProperty("testsiteuRL"));
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")),
 					TimeUnit.SECONDS);
@@ -81,11 +90,14 @@ System.out.println("Test1");
 	@AfterMethod
 	@AfterSuite
 	public void tearDown() {
-		if(driver!=null) {
+		if (driver != null) {
 			driver.quit();
+
 
 		}
 		
+		log.debug("Test execution completed");
+
 	}
 
 }
