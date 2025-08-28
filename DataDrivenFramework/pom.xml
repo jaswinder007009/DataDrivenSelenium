@@ -57,41 +57,77 @@
 			<version>8.0.33</version>
 		</dependency>
 
+
+		<!-- POI JARS STARTS -->
+
+
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+
 		<dependency>
+
 			<groupId>org.apache.poi</groupId>
+
 			<artifactId>poi</artifactId>
-			<version>5.4.1</version>
+
+			<version>4.1.1</version>
+
 		</dependency>
 
+
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+
 		<dependency>
+
 			<groupId>org.apache.poi</groupId>
+
 			<artifactId>poi-ooxml</artifactId>
-			<version>5.4.1</version>
+
+			<version>4.1.1</version>
+
 		</dependency>
 
 
 		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+
 		<dependency>
+
 			<groupId>dom4j</groupId>
+
 			<artifactId>dom4j</artifactId>
+
 			<version>1.6.1</version>
+
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+
 		<dependency>
+
 			<groupId>org.apache.xmlbeans</groupId>
+
 			<artifactId>xmlbeans</artifactId>
-			<version>5.3.0</version>
+
+			<version>3.1.0</version>
+
 		</dependency>
 
+
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+
 		<dependency>
+
 			<groupId>org.apache.poi</groupId>
+
 			<artifactId>poi-ooxml-schemas</artifactId>
-			<version>4.1.2</version>
+
+			<version>4.1.1</version>
+
 		</dependency>
+
+
+		<!-- POI JARS ENDS -->
+
 
 		<!--
 		https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->

@@ -3,7 +3,14 @@
 <suite name="Data Drivern Basics">
   <test name="LoginTest">
     <classes>
-      <class name="com.EX2.testcases.LoginTest"/>
+      <class name="com.EX2.testcases.BankManagerLoginTest"/>
     </classes>
   </test> <!-- Test -->
+  
+   <test name="AddCustomerTest">
+    <classes>
+      <class name="com.EX2.testcases.AddCustomerTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
 </suite> <!-- Suite -->
