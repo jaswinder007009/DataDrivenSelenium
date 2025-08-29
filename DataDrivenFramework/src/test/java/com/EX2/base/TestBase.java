@@ -9,6 +9,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -38,9 +39,10 @@ public class TestBase {
 	public static FileInputStream configFis;
 	public static FileInputStream configOR;
 	public static Logger log = Logger.getLogger("devpinoyLogger");
-
+	public String EXCEL_PATH =System.getProperty("excelPath", System.getProperty("user.dir") + "//src//test//resources//com//EX2//excel//testdata.xlsx");
 	
-	@BeforeMethod
+	
+	//@BeforeMethod
 	@BeforeSuite
 	public void setUp() throws FileNotFoundException {
 		if (driver == null) {
@@ -105,11 +107,11 @@ public class TestBase {
 		}
 	}
 
-	@AfterMethod
+	//@AfterMethod
 	@AfterSuite
 	public void tearDown() {
 		if (driver != null) {
-		//	driver.quit();
+			driver.quit();
 
 		}
 
